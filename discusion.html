@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Discussion Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+
+<div id="root">
+<!--Navigation links, menue ect...-->
+    <nav class="nav-wrapper blue darken-2">
+        <div class="container">
+            <a href ="/" class="brand-logo">Discussion</a>
+            <a href="#" class="sidenav-trigger left" data-target="mobile-links"><i class = "material-icons">menu</i></a>
+            
+            <a href ="#" class ="btn-floating right center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href ="newDiscusion.html">New Discussion</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="signIn.html">Sign Up</a></li>
+                <li><a href="logIn.html">Log In</a></li>
+                <li><a href="index.html"><i class = "material-icons">home</i></a></li>
+            </ul>
+            <!--Links for small screen-->
+            <ul id="mobile-links" class="sidenav">
+                <li><a href ="newDiscusion.html">New Discussion</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="signIn.html">Sign Up</a></li>
+                <li><a href="logIn.html">Log In</a</li>
+                <li><a href="index.html"><i class = "material-icons">home</i>Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+<!--Discussion details and Comments--> 
+    <div class="container">
+        <div class="col s12" >
+            <div class="card blue z-depth-1">
+                <div class="card-content">
+                    <span class="card-title">Ime Diskusije</span>
+                    <p>malo detaljnije opisana diskusija</p>
+                    <p>Posted by: {project.authorFirstName} {project.authorLastName}</p>
+                    <p>Posted by: {moment(project.createdAt.toDate()).calendar()} </p>
+                    <a href="#" class="btn"><span>Go back</span><i class = "material-icons right">arrow_back_ios</i></a>
+                </div> 
+            </div>
+        </div>
+
+        <div class = "col s12 ">
+            <div class="card" >
+                <div class = "card-content">
+                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
+                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+                    <ul class = "notifications"> 
+                        <li key={x.id}>
+                            <div class="grey-text">Time of comment</div>
+                            <br/>
+                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" >
+                <div class = "card-content">
+                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
+                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+                    <ul class = "notifications"> 
+                        <li key={x.id}>
+                            <div class="grey-text">Time of comment</div>
+                            <br/>
+                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" >
+                <div class = "card-content">
+                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
+                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+                    <ul class = "notifications"> 
+                        <li key={x.id}>
+                            <div class="grey-text">Time of comment</div>
+                            <br/>
+                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <div id="comment" class="z-depth-5 white">
+        <form class= "container row valign-wrapper">
+
+            <div class="input-field col s10">
+                <textarea type="text" id="content" class="materialize-textarea" onChange = {this.handlechange}></textarea>
+                <label class="active" htmlFor="firstName">Comment</label>
+            </div>
+
+            <div class="input-field col s2 center-align">
+                <button class="btn-floating red lighten-1 z-depth-0" onClick = {this.onsubmit}><i class = "material-icons">send</i></button>
+            </div>
+        </form>
+    </div>   
+</div>
+
+< <!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+<script src="main.js"></script>
+</body>
+</html>

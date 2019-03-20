@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>New Discussion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+<!--Navigation links, menue ect...-->
+    <nav class="nav-wrapper blue darken-2">
+        <div class="container">
+            <a href ="/" class="brand-logo">Discussion</a>
+            <a href="#" class="sidenav-trigger left" data-target="mobile-links"><i class = "material-icons">menu</i></a>
+            
+            <a href ="#" class ="btn-floating right center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href ="newDiscusion.html">New Discussion</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="signIn.html">Sign Up</a></li>
+                <li><a href="logIn.html">Log In</a></li>
+                <li><a href="index.html"><i class = "material-icons">home</i></a></li>
+            </ul>
+            <!--Links for small screen-->
+            <ul id="mobile-links" class="sidenav">
+                <li><a href ="newDiscusion.html">New Discussion</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="signIn.html">Sign Up</a></li>
+                <li><a href="logIn.html">Log In</a</li>
+                <li><a href="index.html"><i class = "material-icons">home</i>Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+ <!--Create new Discusion form -->
+    <form class="container">
+        <h4>Create new Discussion</h4>
+        <div class="input-field">
+            <input type="text" id="title" class="validate" onChange = {this.handlechange}/>
+            <label class="active" htmlFor="firstName">Discussion Title</label>
+        </div>
+        <div class="input-field">
+            <textarea type="text" id="content" class="materialize-textarea" onChange = {this.handlechange}></textarea>
+            <label class="active" htmlFor="lastName">Discussion Content</label>
+        </div>
+        
+        <div class="input-field">
+            <button class="btn red lighten-1" onClick = {this.onsubmit}>Create</button>
+        </div>
+    </form>       
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+<script src="main.js"></script>
+</body>
+</html>
