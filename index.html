@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DiscussionApp Markap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+</head>
+
+<body>
+
+<div id="root">
+  <nav class="nav-wrapper blue darken-2">
+    <div class="container">
+      <a href ="/" class="brand-logo">Discussion</a>
+      <a href="#" class="sidenav-trigger left" data-target="mobile-links"><i class = "material-icons">menu</i></a>
+      <a href ="#" class ="btn-floating right center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href ="#">New Discussion</a></li>
+          <li><a href="#">Log Out</a></li>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Log In</a</li>
+      </ul>
+    <!--Links for small screen-->
+        <ul id="mobile-links" class="sidenav">
+            <li><a href ="#">New Discussion</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Log In</a</li>
+        </ul>
+    </div>
+  </nav>
+
+  
+
+  <div class = "container">
+    <div class = "row">        
+      
+      <div class = "col s12 m5 offset-m1 push-m6">
+          <div class="notification section">
+            <div class="card" >
+              <div class = "card-content">
+                <span class = "card-title red-text text-lighten-1">Notifications</span>
+                <ul class = "notifications"> 
+                    <li key={x.id}>
+                        <span class="black-text">Last comment </span>
+                        <span class="black-text">Last comment user</span>
+                        <div class="grey-text">Time of comment</div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col s12 m6 pull-m6">
+          <a href = "{'/topic/' + x.id}" key = "{x.id}">
+                <div class="card blue white-text">
+                    <div class="card-content">
+                        <span class="card-title center-align"><i class="material-icons">assignment</i>Topic title</span>
+                        <p class="truncate">Details on topic</p>
+                        <p >Posted by: {x.authorFirstName} {x.authorLastName}</p>
+                        <p>Time: {moment(x.createdAt.toDate()).calendar()}</p>
+                    </div>
+                    
+                </div>
+          </a> 
+          <a href = "{'/topic/' + x.id}" key = "{x.id}">
+            <div class="card blue white-text">
+                <div class="card-content">
+                    <span class="card-title center-align"><i class="material-icons">assignment</i>Topic title</span>
+                    <p class="truncate">Details on topic</p>
+                    <p >Posted by: {x.authorFirstName} {x.authorLastName}</p>
+                    <p>Time: {moment(x.createdAt.toDate()).calendar()}</p>
+                </div>
+                
+            </div>
+      </a> 
+        </div>  
+
+    </div>
+  </div>
+
+
+      <form class="container">
+          <h4>Log In</h4>
+          <div class="input-field">
+              <input type="email" id="email" class="validate" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="email">Email</label>
+          </div>
+          <div class="input-field">
+              <input type="password" id="password" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="name">Password</label>
+          </div>
+          <div class="input-field">
+              <button class="btn red lighten-1" onClick = {this.onsubmit}>LogIn</button>
+          </div>
+          <div class ="center red-text">
+              {authError ? <p> { authError } </p>: null}
+          </div>
+      </form>         
+
+
+      <form class="container">
+          <h4>Sign up</h4>
+          <div class="input-field">
+              <input type="text" id="firstName" class="validate" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="firstName">First Name</label>
+          </div>
+          <div class="input-field">
+              <input type="text" id="lastName" class="validate" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="lastName">Last Name</label>
+          </div>
+          <div class="input-field">
+              <input type="email" id="email" class="validate" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="email">Email</label>
+          </div>
+          <div class="input-field">
+              <input type="password" id="password" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="name">Password</label>
+          </div>
+          <div class="input-field">
+              <button class="btn red lighten-1" onClick = {this.onsubmit}>Sign up</button>
+          </div>
+          <div class="center red-text">
+              { authError? <p>{authError}</p> : null}
+          </div>
+      </form>         
+ 
+      <form class="container">
+          <h4>Create new Discussion</h4>
+          <div class="input-field">
+              <input type="text" id="title" class="validate" onChange = {this.handlechange}/>
+              <label class="active" htmlFor="firstName">Discussion Title</label>
+          </div>
+          <div class="input-field">
+              <textarea type="text" id="content" class="materialize-textarea" onChange = {this.handlechange}></textarea>
+              <label class="active" htmlFor="lastName">Discussion Content</label>
+          </div>
+          
+          <div class="input-field">
+              <button class="btn red lighten-1" onClick = {this.onsubmit}>Create</button>
+          </div>
+      </form>       
+
+      <!--Discussion details-->
+      
+        <div class="container">
+        <div class="col s12" >
+            <div class="card blue z-depth-1">
+                <div class="card-content">
+                    <span class="card-title">Ime Diskusije</span>
+                    <p>malo detaljnije opisana diskusija</p>
+                    <p>Posted by: {project.authorFirstName} {project.authorLastName}</p>
+                    <p>Posted by: {moment(project.createdAt.toDate()).calendar()} </p>
+                    <a href="#" class="btn"><span>Go back</span><i class = "material-icons right">arrow_back_ios</i></a>
+                </div> 
+            </div>
+        </div>
+
+        <div class = "col s12 ">
+                <div class="card" >
+                    <div class = "card-content">
+                        <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
+                        <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
+                        <ul class = "notifications"> 
+                            <li key={x.id}>
+                                <div class="grey-text">Time of comment</div>
+                                <br/>
+                                <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <div id="comment" class="z-depth-5 white">
+            <form class= "container row valign-wrapper">
+
+                <div class="input-field col s10">
+                    <textarea type="text" id="content" class="materialize-textarea" onChange = {this.handlechange}></textarea>
+                    <label class="active" htmlFor="firstName">Comment</label>
+                </div>
+
+                <div class="input-field col s2 center-align">
+                    <button class="btn-floating red lighten-1 z-depth-0" onClick = {this.onsubmit}><i class = "material-icons">send</i></button>
+                </div>
+            </form>
+        </div>
+          
+</div>
+
+< <!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+<script src="main.js"></script>
+</body>
+</html>
