@@ -60,12 +60,16 @@ function renderDiscusion(doc){
 
 
 //getting data from discussion collection
-db.collection('discussions').get().then((querySnapshot) => {
+db.collection("discussions").get().then(function(querySnapshot) {
   console.log("prosao get aktivirao se then");
-    querySnapshot.forEach((x) => {
-        console.log("ispisuje doc " + x);
+    querySnapshot.forEach(function(doc) {
+      //doc.data() is never undefinde for query doc snapsots
+      console.log(doc.id, "=> ", doc.data());
+
         //renderDiscusion(doc);
       });
+  }).catch(function(error){
+    console.log("Error getting documents: ", error);
   });
 
 
