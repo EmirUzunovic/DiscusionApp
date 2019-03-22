@@ -1,8 +1,9 @@
 
+
 //initialize materializecss
-$(document).ready(function(){
-  $('.sidenav').sidenav();
-  $('.tabs').tabs();
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
 });
 
 // Initialize Firebase
@@ -44,8 +45,7 @@ function renderDiscusion(doc){
   discusionContent.textContent = doc.data().content;
   postedBy.textContent = "Posted by " +  doc.data().author;
   postedAt.textContent = "Posted at " +  doc.data().time;
-  a.textContent = doc;
-
+  
   li.appendChild(a);
   a.appendChild(divCard);
   divCard.appendChild(divCardContent);
@@ -56,21 +56,22 @@ function renderDiscusion(doc){
   
   discusions.appendChild(li);
 }
+//deleting data 
 
-
-
-//getting data from discussion collection
-db.collection("discussions").get().then(function(querySnapshot) {
-  console.log("prosao get aktivirao se then");
-    querySnapshot.forEach(function(doc) {
-      //doc.data() is never undefinde for query doc snapsots
-      console.log(doc.id, "=> ", doc.data());
-
-        //renderDiscusion(doc);
-      });
-  }).catch(function(error){
-    console.log("Error getting documents: ", error);
+// real-time listener geting data
+db.collection('discussions').onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(change => {
+      console.log(change.doc.data());
+      if(change.type == 'added'){
+        renderDiscusion(change.doc);
+      }
+      // } else if (change.type == 'removed'){
+      //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+      //     cafeList.removeChild(li);
+      // }
   });
+});
 
 
 
