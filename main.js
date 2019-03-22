@@ -34,8 +34,10 @@ function renderDiscusion(doc){
   let discusionContent = document.createElement('p');
   let postedBy = document.createElement('p');
   let postedAt = document.createElement('p');
+  let deleteButton = document.createElement('a')
+  let deleteIcon = document.createElement('i')
 
-  a.setAttribute('href', "discusion.html");
+  //a.setAttribute('href', "discusion.html");
   a.setAttribute('key', doc.id);
   divCard.classList.add('card', 'blue', 'white-text');
   divCardContent.classList.add('card-content');
@@ -45,18 +47,33 @@ function renderDiscusion(doc){
   discusionContent.textContent = doc.data().content;
   postedBy.textContent = "Posted by " +  doc.data().author;
   postedAt.textContent = "Posted at " +  doc.data().time;
-  
+  deleteButton.classList.add('btn-floating', 'right', 'center-align', 'light', 'red', 'lighten-1', 'waves-effect', 'waves-dark', 'z-depth-0');
+  deleteIcon.setAttribute('lock', doc.id);
+  deleteIcon.classList.add('material-icons');
+  deleteIcon.textContent = "delete"
+
   li.appendChild(a);
   a.appendChild(divCard);
   divCard.appendChild(divCardContent);
   divCardContent.appendChild(discusionTopic);
+  divCardContent.appendChild(deleteButton)
   divCardContent.appendChild(discusionContent);
   divCardContent.appendChild(postedBy);
   divCardContent.appendChild(postedAt);
+  deleteButton.appendChild(deleteIcon);
   
   discusions.appendChild(li);
+
+  //deleting data   
+  deleteButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const id = e.target.getAttribute('lock');
+    db.collection('discussions').doc(id).delete();
+  });
+
 }
-//deleting data 
+
+
 
 // real-time listener geting data
 db.collection('discussions').onSnapshot(snapshot => {
@@ -66,10 +83,10 @@ db.collection('discussions').onSnapshot(snapshot => {
       if(change.type == 'added'){
         renderDiscusion(change.doc);
       }
-      // } else if (change.type == 'removed'){
-      //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
-      //     cafeList.removeChild(li);
-      // }
+//       // } else if (change.type == 'removed'){
+//       //     let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+//       //     cafeList.removeChild(li);
+// //       // }
   });
 });
 

@@ -70,11 +70,15 @@
                         <div class="card blue white-text">
                             <div class="card-content">
                                 <span class="card-title center-align">Topic title</span>
+                                <button class ="btn-floating right center-align light red lighten-1 waves-effect waves-dark z-depth-0"><i class = "material-icons">delete</i></button>
                                 <p class="truncate">Details on topic</p>
                                 <p >Posted by: {x.authorFirstName} {x.authorLastName}</p>
                                 <p>Time: {moment(x.createdAt.toDate()).calendar()}</p>
+                                
                             </div>
+                            
                         </div>
+                        
                     </a>     
                 </li>
             </ul>
@@ -83,7 +87,7 @@
     </div>
 </div>
 
-< <!-- Compiled and minified JavaScript -->
+<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 
