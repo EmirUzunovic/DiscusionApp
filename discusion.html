@@ -45,7 +45,7 @@
     
 <!--Discussion details and Comments--> 
     <div class="container">
-        <div class="col s12" >
+       
             <div class="card blue z-depth-1">
                 <div class="card-content">
                     <span class="card-title">Ime Diskusije</span>
@@ -55,55 +55,15 @@
                     <a href="#" class="btn"><span>Go back</span><i class = "material-icons right">arrow_back_ios</i></a>
                 </div> 
             </div>
-        </div>
+     
 
-        <div class = "col s12 ">
-            <div class="card" >
-                <div class = "card-content">
-                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
-                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
-                    <ul class = "notifications"> 
-                        <li key={x.id}>
-                            <div class="grey-text">Time of comment</div>
-                            <br/>
-                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="comments">
 
-            <div class="card" >
-                <div class = "card-content">
-                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
-                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
-                    <ul class = "notifications"> 
-                        <li key={x.id}>
-                            <div class="grey-text">Time of comment</div>
-                            <br/>
-                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card" >
-                <div class = "card-content">
-                    <span class = "card-title red-text text-lighten-1">Ime komentatora</span>
-                    <a href ="#" class ="btn-floating left center-align light red lighten-1 waves-effect waves-dark z-depth-0">NN</a>
-                    <ul class = "notifications"> 
-                        <li key={x.id}>
-                            <div class="grey-text">Time of comment</div>
-                            <br/>
-                            <div class="grey-text">Tekst komentara bla bla bla bla bla balba </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>    
-
+            </ul>
+ </div>   
+<!--comment form add comment-->
     <div id="comment" class="z-depth-5 white">
-        <form class= "container row valign-wrapper">
+        <form id="newComment" class= "container row valign-wrapper">
 
             <div class="input-field col s10">
                 <textarea type="text" id="content" class="materialize-textarea" onChange = {this.handlechange}></textarea>
@@ -115,11 +75,13 @@
             </div>
         </form>
     </div>   
-</div>
+
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 <script src="main.js"></script>
+<script src="discussion.js"></script>
+
 </body>
 </html>

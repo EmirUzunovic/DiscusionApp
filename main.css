@@ -12,8 +12,12 @@ textarea.materialize-textarea:focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly]) {
    color: #039be5;
    border-color:#039be5;
-
 }
+
+.comments{
+   margin-bottom: 10vw;
+}
+
 h4 {
    margin-bottom: 1erm
 }
